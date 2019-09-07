@@ -1,0 +1,43 @@
+<script>
+
+var ctx = document.getElementById('myPie').getContext('2d');
+var myChart = new Chart(ctx, {
+type: 'doughnut',
+data: {
+      labels: ['Average', 'Sum'],
+       datasets: [{
+        label: '# of stuff',
+         data: ['{{ context.average }}', '{{ context.sum }}'],
+         backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(78, 115, 223, 0.8)',
+
+            ],
+         borderColor: [
+             'rgba(255, 99, 132, 1)',
+              'rgba(78, 115, 223, 1)',
+
+                  ],
+                borderWidth: 1
+                  }]
+                          },
+          options: {
+             maintainAspectRatio: false,
+               scales: {
+                 yAxes: [{
+                 ticks: {
+                 display: false
+
+                 },
+           gridLines: {
+                display: false,
+                drawBorder: false
+                 }
+                       }]
+           }
+                          },
+           legend: {
+           position:'bottom'
+            }
+})
+</script>

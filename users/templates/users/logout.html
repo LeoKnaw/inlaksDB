@@ -1,0 +1,17 @@
+{% extends 'users/loginBase.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title>You have been logged out</title>
+{% endblock title %}
+
+{% block content %}
+
+         <div class="alert alert-success">You have logged out successfully</div>
+              <div class="text-center">
+                  <a class="small" href="{% url 'login' %}">Sign in again</a>
+                  <br/>
+                  <small class="text-muted">Need an account?</small> <a class="small" href="{% url 'register' %}">Sign Up!</a>
+              </div>
+
+{% endblock content %}

@@ -1,0 +1,29 @@
+{% extends 'users/loginBase.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title>Sign In!</title>
+{% endblock title %}
+
+{% block content %}
+
+            <form class="user" method="POST">
+                {% csrf_token %}
+
+                  <fieldset class="form-group">
+                      <legend class="border-bottom mb-4">Sign In!</legend>
+                      {{ form|crispy }}
+                  </fieldset>
+                <button class="btn btn-primary btn-user btn-block" type="submit">
+                  Sign In
+                </button>
+
+            </form>
+             <div class="text-center">
+                <a class="small" href="{% url 'password-reset' %}">Forgot Password?</a>
+              </div>
+              <div class="text-center">
+                  <small class="text-muted">Need an account?</small> <a class="small" href="{% url 'register' %}">Sign Up!</a>
+              </div>
+
+{% endblock content %}

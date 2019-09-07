@@ -1,0 +1,38 @@
+<script>
+                      var d = new Date()
+
+                      var ctx = document.getElementById('myChart').getContext('2d');
+                      var myChart = new Chart(ctx, {
+                          type: 'line',
+                          data: {
+                              labels: [d.getDate()+'/'+d.getMonth()+'/'+d.getFullYear(), 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+                              datasets: [{
+                                  label: '',
+                                  data: [{{ context.sumToday }}],
+                                  backgroundColor: 'rgba(78, 115, 223, 0.2)',
+                                  borderColor: 'rgba(78, 115, 223, 1)',
+                                  borderWidth: 3,
+
+                              }]
+                          },
+                          options: {
+                              scales: {
+                                  yAxes: [{
+                                      ticks: {
+                                          beginAtZero: true
+                                      },
+
+                                      gridLines: {
+                              display: false,
+                              drawBorder: true
+                              },
+                              maxTickLimit: 7
+                                  }]
+                              },
+                              legend:{
+                                display:false
+                              }
+
+                          }
+                      });
+                  </script>
